@@ -1,12 +1,14 @@
 # Plasta GUI Maker
 
-> Conjunto de utilidades y herramientas para trabajar con [Plasta](https://github.com/informaticameg/plasta) e interfaces en PyQt.
+> Set of utilities and tools for working with [Plasta](https://github.com/informaticameg/plasta) and interfaces in PyQt.
 
-## Lista de utilidades/herramientas
+## List of utilities/tools
 
-Todas estas herramientas debajo descriptas poseen una GUI para realizar lo mismo que desde código.
-### Generar paquete Plasta
-Herramienta para generar los 4 archivos de un paquete plasta base.
+All these tools described below have a GUI to do the same as from code.
+
+### Generate Plasta package
+
+Tool for generate the 4 files of Plasta base package.
 
 ```
 /object_folder_example
@@ -15,9 +17,10 @@ Herramienta para generar los 4 archivos de un paquete plasta base.
   --- add.py
   --- gui.py
 ```
-Desde codigo:
+From code:
 
-<pre><code>from maker import make_plasta_package
+```python
+from maker import make_plasta_package
 data = {
   'className':'Person',
   'addIdeAttr':True,
@@ -41,12 +44,12 @@ data = {
   'outputFolder':'/some_folder'
 }
 
-make_plasta_package.generatePackage(data)</pre></code>
+make_plasta_package.generatePackage(data)
+```
 
+### Create UI
 
-### Crear UI
-
-Herramienta para generar un archivo .ui tipo formulario nuevo/editar
+Tool for generate .ui file like a form new/edit
 
 ```python
 from maker import add_maker_simple
@@ -59,33 +62,32 @@ options = {'tipo': 'Dialog', 'generar_plantilla': False}
 add_maker_simple.generarUI(outputFile, fields, buttons, options)
 ```
 
-#### Valores para parametro 'options':
-- tipo: tipo de ventana a generar, posibles valores: (Dialog, MainWindow)
-- generar_plantilla: si es True, generará junto con el .ui el archivo .py para manejarlo
+#### Values for 'options' parameter:
+- tipo: type of window to generate, possible values: (Dialog, MainWindow)
+- generar_plantilla: if True, will be generate together with the .ui the .py file to handle
 
-#### TODO
-- Incluir métodos de las señales/eventos
+### Generate Storm class + .ui
 
-### Generar clase Storm + .ui
+Template generator for the storm file `__init__.py`. Data types are supported for databases SQLite, MySQL y PostgresSQL.
 
-Generador de plantillas para el archivo storm `__init__.py`. Tipos de datos soportados para bases de datos SQLite, MySQL y PostgresSQL.
+### Generate signals/events
 
-#### TODO en la GUI
-- Generar el archivo .ui para la plantilla 
+Generator/explorer of signals/events of the widgets included in a .ui
 
-### Generar señales/metodos
+### Generate template for .ui file
 
-Generador/explorador de señales/eventos de los widgets incluidos en un .ui
-
-#### TODO en la GUI
-- Funcionalidad de botones ubicados a la izquiera de los editores de código.
-
-### Generar plantilla para un .ui
-
-Genera el archivo .py para un .ui indicado.
+Generate the .py file for a .ui file
 
 
-## Ejecutar el programa
+## TODO
+* **Create UI**
+	* Include signals/events methods
+* **Generate signals/events**
+	* Functionality buttons located to the left of code editors
+* **Generate Storm class + .ui** 
+	* Generate the .ui file for the  template
+
+## Run the program
 ```python 
 python main.py
 ```
@@ -96,6 +98,6 @@ python main.py
 python run_test.py
 ```
 
-## Contribuir
+## Contribute
 
-Las contribuciones son bienvenidas
+Contributions are welcome :)
